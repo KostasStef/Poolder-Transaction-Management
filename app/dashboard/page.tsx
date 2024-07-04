@@ -1,4 +1,3 @@
-import ProtectedRoute from '@/route/route';
 import dynamic from 'next/dynamic';
 
 const DynamicClientLayout = dynamic(() => import('@/app/layout/DynamicImport'), { ssr: false });
@@ -6,13 +5,11 @@ const DynamicClientLayout = dynamic(() => import('@/app/layout/DynamicImport'), 
 const Dashboard = () => {
 
   return (
-    <DynamicClientLayout>
-      <ProtectedRoute>
-        <div>
-          <h1>Dashboard</h1>
-        </div>
-      </ProtectedRoute>
-    </DynamicClientLayout>
+      <DynamicClientLayout>
+          <div>
+            <h1>Dashboard</h1>
+          </div>
+      </DynamicClientLayout>
   );
 };
 

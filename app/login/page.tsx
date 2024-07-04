@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
 
-export default function Login({
+export default async function Login({
   searchParams,
 }: {
   searchParams: { message: string };
@@ -20,7 +20,7 @@ export default function Login({
       email,
       password,
     });
-
+    
     if (error) {
       return redirect("/login?message=Could not authenticate user");
     }
@@ -43,7 +43,6 @@ export default function Login({
         emailRedirectTo: `${origin}/auth/callback`,
       },
     });
-
     if (error) {
       return redirect("/login?message=Could not authenticate user");
     }

@@ -68,7 +68,8 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false); 
+  const [pathname, _setPathname] = React.useState<string | null>(window?.location?.pathname)
   const {
     navigateToDashboard,
     navigateToTransactions,
@@ -126,7 +127,7 @@ export default function MiniDrawer() {
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
-                  color: window.location.pathname.includes("dashboard") ? "orange" : "inherit",
+                  color: pathname?.includes("dashboard") ? "orange" : "inherit",
                 }}
               >
                 <GridViewIcon />
@@ -155,7 +156,7 @@ export default function MiniDrawer() {
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
-                  color: window.location.pathname.includes("transactions") ? "orange" : "inherit",
+                  color: pathname?.includes("transactions") ? "orange" : "inherit",
                 }}
               >
                 <WalletIcon />
@@ -187,7 +188,7 @@ export default function MiniDrawer() {
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
-                  color: window.location.pathname.includes("settings") ? "orange" : "inherit",
+                  color: pathname?.includes("settings") ? "orange" : "inherit",
                 }}
               >
                 <SettingsIcon />

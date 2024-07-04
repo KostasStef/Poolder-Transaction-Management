@@ -57,10 +57,6 @@ const Transactions = () => {
 
   const handleGetUser = async () => {
     (await getUser()).auth.getUser().then((response: any) => {
-        if (response.error) {
-          console.error('Error fetching user:', response.error.message);
-          return;
-        }
         setUser(response.data?.user ?? null);
       }).catch((error: { message: any; }) => {
         console.error('Error fetching user:', error.message);
